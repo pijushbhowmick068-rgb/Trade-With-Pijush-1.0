@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080e18">
+<title>TRADE WITH PIJUSH</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">TP</div>
+  <div class="brand"><strong>TRADE WITH PIJUSH</strong><small>AI TRADING TERMINAL</small></div>
+  <span class="demo-pill"><i></i> DEMO</span>
+</header>
+
+<main>
+  <section class="welcome">
+    <div><p class="eyebrow">YOUR TRADING COMMAND CENTER</p><h1>Trade smarter.<br><span>Stay disciplined.</span></h1></div>
+    <div class="avatar">P</div>
+  </section>
+
+  <section class="market-strip">
+    <div><small>MARKET STATUS</small><b id="marketStatus">DEMO SESSION</b></div>
+    <div class="market-change">● SIMULATED DATA</div>
+  </section>
+
+  <nav class="tabs" aria-label="Market segments">
+    <button class="tab active" data-market="Indian F&O">INDIA F&O</button>
+    <button class="tab" data-market="Forex">FOREX</button>
+    <button class="tab" data-market="Crypto">CRYPTO</button>
+  </nav>
+
+  <section class="panel">
+    <div class="section-head"><div><small class="eyebrow">WATCHLIST</small><h2 id="marketTitle">Indian F&O</h2></div><span class="live-label">● SAMPLE</span></div>
+    <div id="watchlist" class="watchlist"></div>
+  </section>
+
+  <section class="panel chart-panel">
+    <div class="section-head"><div><small class="eyebrow">MARKET OVERVIEW</small><h2 id="chartSymbol">NIFTY 50</h2></div>
+      <select id="timeframe" aria-label="Chart timeframe"><option>5m</option><option>15m</option><option>1H</option><option>4H</option><option>1D</option></select>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-meta"><span id="chartPrice">24,850.00</span><span class="positive" id="chartChange">+0.64%</span></div>
+      <svg id="chart" viewBox="0 0 340 145" preserveAspectRatio="none" role="img" aria-label="Illustrative sample price chart"></svg>
+      <div class="chart-foot"><span>Illustrative chart</span><span>Not live market data</span></div>
+    </div>
+  </section>
+
+  <section class="panel signal-panel">
+    <div class="section-head"><div><small class="eyebrow">TRADE SETUP</small><h2>Signal Center</h2></div><span class="tag neutral">DEMO SIGNAL</span></div>
+    <div class="signal-top"><div><small>Selected instrument</small><h3 id="signalSymbol">NIFTY 50</h3></div><span class="signal-side buy" id="signalSide">BUY</span></div>
+    <p class="signal-note">Sample setup for interface testing only. Not a recommendation or a live AI prediction.</p>
+    <div class="levels">
+      <div><small>ENTRY</small><b id="entry">24,850</b></div>
+      <div><small>STOP LOSS</small><b id="stop">24,800</b></div>
+      <div><small>TARGET 1 · 1R</small><b class="green" id="target1">24,900</b></div>
+      <div><small>TARGET 2 · 2R</small><b class="green" id="target2">24,950</b></div>
+      <div><small>TARGET 3 · 3R</small><b class="green" id="target3">25,000</b></div>
+      <div><small>RISK : REWARD</small><b>1 : 1 / 2 / 3</b></div>
+    </div>
+    <button class="primary full" id="paperTrade">＋ Add to Paper Trades</button>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><small class="eyebrow">POSITION PLANNER</small><h2>Risk Calculator</h2></div></div>
+    <div class="form-grid">
+      <label>Account balance (₹)<input id="balance" type="number" value="50000" min="1"></label>
+      <label>Risk per trade (%)<input id="riskPct" type="number" value="1" min="0.1" max="5" step="0.1"></label>
+      <label>Entry price<input id="calcEntry" type="number" value="24850" min="0.01" step="0.01"></label>
+      <label>Stop-loss price<input id="calcStop" type="number" value="24800" min="0.01" step="0.01"></label>
+    </div>
+    <div class="calc-result"><small>MAX PLANNED RISK</small><strong id="riskAmount">₹500.00</strong><p id="qtyText">Estimated quantity: 10 units (before fees/slippage)</p></div>
+    <p class="fineprint">Position sizing is a mathematical estimate. Contract lot sizes, leverage, fees, slippage and broker margin are not included.</p>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><small class="eyebrow">YOUR ACTIVITY</small><h2>Paper Trade Journal</h2></div><span class="count" id="tradeCount">0 trades</span></div>
+    <div id="tradeList" class="trade-list"><div class="empty">No paper trades yet. Add a sample setup to begin.</div></div>
+    <button class="text-button" id="clearTrades">Clear paper journal</button>
+  </section>
+
+  <section class="notice">
+    <div class="notice-icon">!</div><div><b>Important safety notice</b><p>This first build uses simulated sample values. It does not connect to an exchange or broker, does not generate verified AI predictions, and cannot place real orders. Never treat demo signals as financial advice.</p></div>
+  </section>
+</main>
+
+<footer><span>TRADE WITH PIJUSH</span><span>VERSION 1.0 · PAPER MODE</span></footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
